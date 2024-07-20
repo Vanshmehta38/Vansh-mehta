@@ -69,6 +69,11 @@ html {
   }
 }
 
+.custom-background {
+  background-color: #bcf4d56e;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(1rem);
+}
 
 .no-select {
   -webkit-user-select: none;

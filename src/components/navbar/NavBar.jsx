@@ -65,13 +65,11 @@ const NavBar = ({ toggleDarkMode, darkMode }) => {
             Web Dev
           </Link>
         </div>
-        <div
-          data-aos="fade-down"
-          className="nav-items flex items-center space-x-11"
-        >
+        <div className="nav-items flex items-center">
           {/* hamburger */}
           <button
             onClick={toggleNav}
+            data-aos="fade-down"
             className="cursor-pointer text-2xl hidden md:block"
           >
             <HiMenu size={25} />
@@ -79,8 +77,8 @@ const NavBar = ({ toggleDarkMode, darkMode }) => {
 
           <ul
             className={`flex items-center space-x-11 ${
-              !isOpen ? "md:flex" : "md:right-[0%]"
-            } md:flex-col md:absolute m-auto md:top-0 md:right-[-100%] md:w-[78%] md:h-screen md:bg-white `}
+              !isOpen ? "md:flex" : "custom-background md:right-[0%]"
+            } md:flex-col md:absolute m-auto md:top-0 md:right-[-100%] md:w-[78%] md:h-screen  `}
           >
             {/* Use a button tag for better accessibility */}
             <button
@@ -91,6 +89,7 @@ const NavBar = ({ toggleDarkMode, darkMode }) => {
             </button>
             {navItems.map((item) => (
               <li
+                data-aos="fade-down"
                 key={item.id}
                 className="md:m-6 md:flex md:gap-6 md:items-center md:justify-center"
               >
@@ -107,6 +106,7 @@ const NavBar = ({ toggleDarkMode, darkMode }) => {
             ))}
             <a
               href="#contact"
+              data-aos="fade-down"
               className="bg-black text-[1rem] text-white px-8 py-2 rounded-lg font-bold hover:text-yellow-400 md:m-5 md:block md:mx-auto md:w-fit lg:px-3"
             >
               HIRE ME

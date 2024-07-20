@@ -9,9 +9,9 @@ import resumePDF from "/pdf/Vansh Mehta.pdf";
 const Hero = () => {
   return (
     <div id="home" className={` bg-gradient-to-r from-green-200 to-blue-200 `}>
-      <div className=" container mx-auto pt-5 h-[750px] md:h-[900px] md:flex-col-reverse sm:h-[680px]  flex sm:flex-col-reverse sm:pt-0 ">
-        <div className=" left mt-4 md:mt-0 flex-1 flex flex-col justify-center gap-5 w-1/2 md:w-full md:py-2 sm:py-0">
-          <div className="info w-fit flex flex-col items-start justify-center gap-3 sm:gap-2">
+      <div className="container mx-auto pt-5 h-[750px] md:h-[900px] md:flex-col-reverse sm:h-[680px]  flex sm:flex-col-reverse sm:pt-0 ">
+        <div className=" left mt-4 md:mt-0 flex-1 flex flex-col justify-center sm:items-center gap-5 w-1/2 md:w-full md:py-2 sm:py-0">
+          <div className="info w-fit flex flex-col items-start justify-center sm:items-center gap-3 sm:gap-2">
             <h2
               data-aos="fade-up"
               className=" text-5xl font-bold sm:text-[2rem]"
@@ -24,11 +24,11 @@ const Hero = () => {
               speed={30}
               wrapper="h2"
               repeat={Infinity}
-              className="text-yellow-500 text-4xl font-bold sm:text-3xl"
+              className="text-yellow-500 text-4xl font-bold sm:text-2xl"
             />
             <p
-              // data-aos="fade-up"
-              className=" text-[1.1rem] font-medium w-3/4 md:w-full text-gray-600 sm:text-[.95rem]"
+              data-aos="fade-up"
+              className="text-[1.1rem] font-medium text-gray-600 sm:text-[.95rem]"
             >
               B-Tech in information technology
             </p>
@@ -101,7 +101,7 @@ const Hero = () => {
                 className=" relative cursor-pointer"
               >
                 <img
-                  className=" w-[135px] md:w-[150px] circle-text"
+                  className="w-[135px] sm:w-[80px] md:w-[150px] circle-text"
                   src="/images/Full Stack Developer2.png"
                   alt=""
                 />
