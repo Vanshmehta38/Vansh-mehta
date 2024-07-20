@@ -9,22 +9,22 @@ const App = () => {
 
   useEffect(() => {
     // Prevent context menu and keyboard shortcuts
-    const handleContextMenu = (event) => {
-      event.preventDefault();
-    };
+    // const handleContextMenu = (event) => {
+    //   event.preventDefault();
+    // };
 
-    const handleKeyDown = (event) => {
-      if (
-        (event.ctrlKey &&
-          (event.key === "c" || event.key === "u" || event.key === "s")) || // Ctrl+C, Ctrl+U, Ctrl+S
-        event.key === "F12" // F12
-      ) {
-        event.preventDefault();
-      }
-    };
+    // const handleKeyDown = (event) => {
+    //   if (
+    //     (event.ctrlKey &&
+    //       (event.key === "c" || event.key === "u" || event.key === "s")) || // Ctrl+C, Ctrl+U, Ctrl+S
+    //     event.key === "F12" // F12
+    //   ) {
+    //     event.preventDefault();
+    //   }
+    // };
 
-    document.addEventListener("contextmenu", handleContextMenu);
-    document.addEventListener("keydown", handleKeyDown);
+    // document.addEventListener("contextmenu", handleContextMenu);
+    // document.addEventListener("keydown", handleKeyDown);
 
     // Loading timeout
     const timer = setTimeout(() => {
@@ -34,8 +34,8 @@ const App = () => {
     // Cleanup
     return () => {
       clearTimeout(timer);
-      document.removeEventListener("contextmenu", handleContextMenu);
-      document.removeEventListener("keydown", handleKeyDown);
+      // document.removeEventListener("contextmenu", handleContextMenu);
+      // document.removeEventListener("keydown", handleKeyDown);
     };
   }, []);
 

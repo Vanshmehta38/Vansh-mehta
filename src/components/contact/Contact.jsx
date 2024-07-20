@@ -181,42 +181,36 @@ const Contact = () => {
             data-aos="zoom-in"
             className="flex justify-center items-center flex-col gap-4 w-[70%] md:w-[100%] sm:w-[95%] mx-auto"
           >
-            <div className="flex flex-wrap gap-4 w-full">
-              {/* Name */}
-              <div className="w-full md:w-1/2">
-                <input
-                  className="px-3 shadow-[0_0_16px_0px_rgba(0,0,0,0.1)] p-2 rounded-lg w-full"
-                  type="text"
-                  placeholder="Name"
-                  value={name}
-                  onInput={(e) =>
-                    (e.target.value = e.target.value.slice(0, 55))
-                  }
-                  onChange={handleNameChange}
-                />
-                {errors.name && (
-                  <p className="text-red-500 ml-2 mt-1">{errors.name}</p>
-                )}
-              </div>
-              {/* Number */}
-              <div className="w-full md:w-1/2">
-                <input
-                  className="px-3 shadow-[0_0_16px_0px_rgba(0,0,0,0.1)] p-2 rounded-lg w-full"
-                  type="text"
-                  placeholder="Phone Number"
-                  value={number}
-                  onInput={(e) =>
-                    (e.target.value = e.target.value.slice(0, 10))
-                  }
-                  onChange={handleNumberChange}
-                />
-                {errors.number && (
-                  <p className="text-red-500 ml-2 mt-1">{errors.number}</p>
-                )}
-              </div>
+            {/* Name */}
+            <div className="w-full">
+              <input
+                className="px-3 shadow-[0_0_16px_0px_rgba(0,0,0,0.1)] p-2 rounded-lg w-full"
+                type="text"
+                placeholder="Name"
+                value={name}
+                onInput={(e) => (e.target.value = e.target.value.slice(0, 55))}
+                onChange={handleNameChange}
+              />
+              {errors.name && (
+                <p className="text-red-500 ml-2 mt-1">{errors.name}</p>
+              )}
+            </div>
+            {/* Number */}
+            <div className="w-full">
+              <input
+                className="px-3 shadow-[0_0_16px_0px_rgba(0,0,0,0.1)] p-2 rounded-lg w-full"
+                type="text"
+                placeholder="Phone Number"
+                value={number}
+                onInput={(e) => (e.target.value = e.target.value.slice(0, 10))}
+                onChange={handleNumberChange}
+              />
+              {errors.number && (
+                <p className="text-red-500 ml-2 mt-1">{errors.number}</p>
+              )}
             </div>
             {/* Email */}
-            <div className="w-[100%]">
+            <div className="w-full">
               <input
                 className="px-3 shadow-[0_0_16px_0px_rgba(0,0,0,0.1)] p-2 rounded-lg w-full"
                 type="email"
@@ -229,7 +223,7 @@ const Contact = () => {
               )}
             </div>
             {/* Subject */}
-            <div className="w-[100%]">
+            <div className="w-full">
               <input
                 className="px-3 shadow-[0_0_16px_0px_rgba(0,0,0,0.1)] p-2 rounded-lg w-full"
                 type="text"
@@ -243,7 +237,7 @@ const Contact = () => {
               )}
             </div>
             {/* Message */}
-            <div className="w-[100%]">
+            <div className="w-full">
               <textarea
                 className="px-3 shadow-[0_0_16px_0px_rgba(0,0,0,0.1)] p-2 rounded-lg w-full"
                 rows="3"
