@@ -77,8 +77,8 @@ const NavBar = ({ toggleDarkMode, darkMode }) => {
 
           <ul
             className={`flex items-center space-x-11 ${
-              !isOpen ? "md:flex" : "custom-background md:right-[0%]"
-            } md:flex-col md:absolute m-auto md:top-0 md:right-[-100%] md:w-[78%] md:h-screen  `}
+              !isOpen ? "md:flex" : "custom-background md:right-[0%] "
+            } md:flex-col md:absolute m-auto md:top-0 md:right-[-100%] md:w-[78%] md:h-screen`}
           >
             {/* Use a button tag for better accessibility */}
             <button
@@ -107,6 +107,7 @@ const NavBar = ({ toggleDarkMode, darkMode }) => {
             <a
               href="#contact"
               data-aos="fade-down"
+              onClick={() => setIsOpen(!isOpen)}
               className="bg-black text-[1rem] text-white px-8 py-2 rounded-lg font-bold hover:text-yellow-400 md:m-5 md:block md:mx-auto md:w-fit lg:px-3"
             >
               HIRE ME
