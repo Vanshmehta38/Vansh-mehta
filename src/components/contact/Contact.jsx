@@ -1,6 +1,15 @@
 import React, { useState } from "react";
+
+// ** Send email function
+import emailjs from "emailjs-com";
+
+// ** Toast
+import { toast } from "react-hot-toast";
+
+// ** Icon imports
 import { BsArrowRight } from "react-icons/bs";
 import { RiSendPlaneFill } from "react-icons/ri";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 const Contact = () => {
   // ** State
@@ -10,6 +19,7 @@ const Contact = () => {
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
   const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
 
   const validateEmail = (email) => {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -47,21 +57,60 @@ const Contact = () => {
       newErrors.message = "Message cannot be empty.";
     }
 
-    if (number.trim() !== "") {
-      if (isNaN(number)) {
-        formIsValid = false;
-        newErrors.number = "Invalid number.";
-      } else if (number.length < 10 || number.length > 10) {
-        formIsValid = false;
-        newErrors.number = "Number must be 10 digits.";
-      }
+    if (number.trim() === "") {
+      formIsValid = false;
+      newErrors.number = "Number is required.";
+    } else if (isNaN(number) || number.length !== 10) {
+      formIsValid = false;
+      newErrors.number = "Number must be 10 digits.";
     }
 
     setErrors(newErrors);
 
     if (formIsValid) {
-      // Handle form submission
-      console.log("Form submitted", { email, name, subject, message, number });
+      setLoading(true);
+      const templateParams = {
+        name,
+        number,
+        email,
+        subject,
+        message,
+      };
+
+      emailjs
+        .send(
+          "service_6lvhdvo",
+          "template_yf6swu6",
+          templateParams,
+          "uzIDlGWA-xe5tWfg7"
+        )
+        .then((response) => {
+          setName("");
+          setNumber("");
+          setEmail("");
+          setSubject("");
+          setMessage("");
+          console.log("Email sent successfully:", response);
+          toast.success("Your message has been sent successfully!", {
+            style: {
+              border: "1px solid #61d345",
+              padding: "16px",
+              color: "#61d345",
+            },
+          });
+          setLoading(false);
+        })
+        .catch((error) => {
+          console.error("Error sending email:", error);
+          toast.error("Failed to send your message. Please try again later.", {
+            style: {
+              border: "1px solid #ff4b4b",
+              padding: "16px",
+              color: "#ff4b4b",
+            },
+          });
+          setLoading(false);
+        });
     }
   };
 
@@ -126,25 +175,26 @@ const Contact = () => {
 
   const handleNumberChange = (e) => {
     const value = e.target.value;
-    if (e.target.value === "" || Number(e.target.value)) {
-      setNumber(value);
-      if (
-        value.trim() !== "" &&
-        (isNaN(value) || value.length < 10 || value.length > 10)
-      ) {
-        setErrors((prevErrors) => ({
-          ...prevErrors,
-          number: "Number must be 10 digits.",
-        }));
-      } else {
-        setErrors((prevErrors) => ({ ...prevErrors, number: undefined }));
-      }
+    setNumber(value);
+    if (value.trim() === "") {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        number: "Number is required.",
+      }));
+    } else if (isNaN(value) || value.length !== 10) {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        number: "Number must be 10 digits.",
+      }));
+    } else {
+      setErrors((prevErrors) => ({ ...prevErrors, number: undefined }));
     }
   };
 
   return (
     <div id="contact" className="container m-auto mt-16">
       {/* heading */}
+
       <div
         // data-aos="fade-up"
         className="relative mb-5"
@@ -254,9 +304,19 @@ const Contact = () => {
             <button
               className="bg-yellow-500 w-full text-white font-semibold p-2 rounded-lg flex items-center justify-center space-x-1"
               type="submit"
+              disabled={loading}
             >
-              <span>Send</span>
-              <RiSendPlaneFill />
+              {loading ? (
+                <>
+                  <AiOutlineLoading3Quarters className="animate-spin text-xl" />
+                  <span>Please Wait...</span>
+                </>
+              ) : (
+                <>
+                  <span>Send</span>
+                  <RiSendPlaneFill />
+                </>
+              )}
             </button>
           </form>
         </div>
