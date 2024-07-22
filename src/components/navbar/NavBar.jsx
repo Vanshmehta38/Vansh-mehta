@@ -62,7 +62,7 @@ const NavBar = ({ toggleDarkMode, darkMode }) => {
             to="/"
             className="text-3xl font-bold sm:text-3xl"
           >
-            Web Dev
+            Vansh Mehta
           </Link>
         </div>
         <div className="nav-items flex items-center">
