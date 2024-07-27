@@ -10,7 +10,7 @@ const Experience = () => {
     <>
       <div className="section stats-container parallax-mf bg-image">
         <div className="overlay-mf"></div>
-        <div className="stat-item">
+        <div data-aos="fade-up" className="stat-item">
           <div className="counter-ico">
             <span className="ico-circle">
               <FaCheck className="icon" />
@@ -19,7 +19,7 @@ const Experience = () => {
           <div className="stat-number">26+</div>
           <div className="stat-description">Projects Completed</div>
         </div>
-        <div className="stat-item">
+        <div data-aos="fade-up" className="stat-item">
           <div className="counter-ico">
             <span className="ico-circle">
               <MdOutlineDateRange className="icon" />
@@ -28,7 +28,7 @@ const Experience = () => {
           <div className="stat-number">1+</div>
           <div className="stat-description">Years of Experience</div>
         </div>
-        <div className="stat-item">
+        <div data-aos="fade-up" className="stat-item">
           <div className="counter-ico">
             <span className="ico-circle">
               <FaAward className="icon" />
