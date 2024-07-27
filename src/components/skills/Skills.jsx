@@ -4,7 +4,6 @@ import SkillBox from "../../chip/SkillBox";
 
 import { IoLogoHtml5, IoLogoCss3 } from "react-icons/io";
 
-
 import {
   SiJavascript,
   SiTailwindcss,
@@ -21,21 +20,15 @@ const Skills = ({ darkMode }) => {
     <div id="skills">
       <div className=" container m-auto  mt-16">
         {/* heading */}
-        <div data-aos="fade-up" className="relative mb-5">
-          <h3 className=" text-3xl font-black text-gray-400 sm:text-2xl">
-            My Skills
-          </h3>
-          <span className="h-[1.1px] right-0 absolute w-[90%] bg-gray-300 block"></span>
+        <div data-aos="fade-up" className="section-title">
+          <span> My Skills</span>
+          <h2> My Skills</h2>
+          <p>Here are my skills.</p>
         </div>
+
         {/* content*/}
         <div className="flex md:flex-col ">
           <div className="left flex-1 w-full">
-            <p
-              data-aos="fade-up"
-              className=" text-gray-700 font-medium w-[100%]"
-            >
-              Here are my skills.
-            </p>
             {/* left box */}
             <div
               data-aos="zoom-in"
@@ -83,9 +76,7 @@ const Skills = ({ darkMode }) => {
               />
               <SkillBox
                 className=""
-                logo={
-                  <GrCode/>
-                }
+                logo={<GrCode />}
                 black={"black"}
                 white={"white"}
                 skill={"C++"}

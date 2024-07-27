@@ -7,11 +7,19 @@ import emailjs from "emailjs-com";
 import { toast } from "react-hot-toast";
 
 // ** Icon imports
-import { BsArrowRight } from "react-icons/bs";
 import { RiSendPlaneFill } from "react-icons/ri";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import { FaFacebook, FaLinkedinIn } from "react-icons/fa";
+import { RiInstagramFill, RiTwitterXLine } from "react-icons/ri";
+import { IoLogoWhatsapp } from "react-icons/io";
+import { FiShare2, FiMail, FiPhoneCall } from "react-icons/fi";
 
 const Contact = () => {
+  // ** Var
+  const serviceId = import.meta.env.VITE_SERVICE_KRY;
+  const templateId = import.meta.env.VITE_TEMPLATE_KEY;
+  const userId = import.meta.env.VITE_USER_KEY;
+
   // ** State
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
@@ -78,12 +86,7 @@ const Contact = () => {
       };
 
       emailjs
-        .send(
-          "service_6lvhdvo",
-          "template_yf6swu6",
-          templateParams,
-          "uzIDlGWA-xe5tWfg7"
-        )
+        .send(serviceId, templateId, templateParams, userId)
         .then((response) => {
           setName("");
           setNumber("");
@@ -192,49 +195,87 @@ const Contact = () => {
   };
 
   return (
-    <div id="contact" className="container m-auto mt-16">
+    <div id="contact" className="container contact m-auto mt-16">
       {/* heading */}
 
-      <div
-        // data-aos="fade-up"
-        className="relative mb-5"
-      >
-        <h3 className=" text-3xl font-black text-gray-400 sm:text-2xl">
-          Contact
-        </h3>
-        <span className="h-[1.1px] right-0 absolute w-[92%] bg-gray-300 block"></span>
+      {/* heading */}
+      <div data-aos="fade-up" className="section-title">
+        <span>Contact Me</span>
+        <h2>Contact Me</h2>
+        <p>You Need a professional developer? Contact us now!</p>
       </div>
 
-      {/* card*/}
-      <div className="card-wrapper w-[90%] sm:w-[100%] mx-auto mt-5 flex items-center justify-center sm:flex-col">
-        <div className="left w-[70%] flex-1 flex items-center justify-center sm:flex-col sm:w-full">
-          <div className="flex-3 w-1/2 gap-3 flex items-end justify-end  flex-col sm:w-3/4">
-            <div data-aos="zoom-in">
-              <h1 className="text-5xl font-bold sm:text-3xl">You Need</h1>
-              <h3 className="text-xl sm:text-lg">
-                a professional developer? Contact us now!
-              </h3>
+      {/* card */}
+      <div className="card-wrapper w-[90%] md:w-[100%] mx-auto mt-5 flex justify-center sm:flex-col">
+        {/* Insert the new section here */}
+        <div className="w-[50%] sm:w-[100%] mr-5">
+          <div className="w-[100%]">
+            <div data-aos="zoom-in" className="info-box info-box-div">
+              <div className="info-box-social">
+                <FiShare2 />
+              </div>
+              <h3>Social Profiles</h3>
+              <div className="social-links">
+                <a
+                  href="https://www.linkedin.com/in/vansh-mehta-06988021b/"
+                  target="_blank"
+                >
+                  <FaLinkedinIn className="hover:scale-125" />
+                </a>
+                <a href="https://www.instagram.com/1sh_mehta_/" target="_blank">
+                  <RiInstagramFill className="hover:scale-125" />
+                </a>
+                <a
+                  href="https://www.facebook.com/mehta.vansh.3"
+                  target="_blank"
+                >
+                  <FaFacebook className="hover:scale-125" />
+                </a>
+                <a href="https://x.com/vansh_38" target="_blank">
+                  <RiTwitterXLine className="hover:scale-125" />
+                </a>
+                <a
+                  href={
+                    "https://wa.me/+919725920461?text=Hello i want to connect with you."
+                  }
+                  target="_blank"
+                >
+                  <IoLogoWhatsapp className="hover:scale-125" />
+                </a>
+              </div>
             </div>
           </div>
-          <div className=" flex p-5 items-center justify-center ">
-            <button
-              data-aos="zoom-in"
-              className=" text-yellow-500 font-extrabold text-3xl p-2 rounded-lg shadow-[0_0_10px_1px_rgba(0,0,0,0.1)] "
-            >
-              <BsArrowRight className=" md:rotate-90" />
-            </button>
+          <div className="flex sm:flex-col gap-4">
+            <div className="w-[50%] sm:w-[100%] mt-5">
+              <div data-aos="zoom-in" className="info-box">
+                <div className="info-box-social">
+                  <FiMail />
+                </div>
+                <h3>Email Me</h3>
+                <p>vanshmehta7548@gmail.com</p>
+              </div>
+            </div>
+            <div className="w-[50%] sm:w-[100%] sm:mt-1 mt-5">
+              <div data-aos="zoom-in" className="info-box">
+                <div className="info-box-social">
+                  <FiPhoneCall />
+                </div>
+                <h3>Call Me</h3>
+                <p>+91 9725 9204 61</p>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="right flex-1">
+
+        <div data-aos="zoom-in" className="right flex-1 sm:mt-5">
           <form
             onSubmit={handleSubmit}
-            data-aos="zoom-in"
-            className="flex justify-center items-center flex-col gap-4 w-[70%] md:w-[100%] sm:w-[95%] mx-auto"
+            className="flex justify-center items-center flex-col gap-4 w-[70%] md:w-[100%] sm:w-[100%] mx-auto"
           >
-            {/* Name */}
+            {/* Form fields */}
             <div className="w-full">
               <input
-                className="px-3 shadow-[0_0_16px_0px_rgba(0,0,0,0.1)] p-2 rounded-lg w-full"
+                className="shadow-[0_0_16px_0px_rgba(0,0,0,0.1)] p-2 rounded-lg w-full"
                 type="text"
                 placeholder="Name"
                 value={name}
@@ -245,10 +286,9 @@ const Contact = () => {
                 <p className="text-red-500 ml-2 mt-1">{errors.name}</p>
               )}
             </div>
-            {/* Number */}
             <div className="w-full">
               <input
-                className="px-3 shadow-[0_0_16px_0px_rgba(0,0,0,0.1)] p-2 rounded-lg w-full"
+                className="shadow-[0_0_16px_0px_rgba(0,0,0,0.1)] p-2 rounded-lg w-full"
                 type="text"
                 placeholder="Phone Number"
                 value={number}
@@ -259,10 +299,9 @@ const Contact = () => {
                 <p className="text-red-500 ml-2 mt-1">{errors.number}</p>
               )}
             </div>
-            {/* Email */}
             <div className="w-full">
               <input
-                className="px-3 shadow-[0_0_16px_0px_rgba(0,0,0,0.1)] p-2 rounded-lg w-full"
+                className="shadow-[0_0_16px_0px_rgba(0,0,0,0.1)] p-2 rounded-lg w-full"
                 type="email"
                 placeholder="Email"
                 value={email}
@@ -272,10 +311,9 @@ const Contact = () => {
                 <p className="text-red-500 ml-2 mt-1">{errors.email}</p>
               )}
             </div>
-            {/* Subject */}
             <div className="w-full">
               <input
-                className="px-3 shadow-[0_0_16px_0px_rgba(0,0,0,0.1)] p-2 rounded-lg w-full"
+                className="shadow-[0_0_16px_0px_rgba(0,0,0,0.1)] p-2 rounded-lg w-full"
                 type="text"
                 placeholder="Subject"
                 value={subject}
@@ -286,10 +324,9 @@ const Contact = () => {
                 <p className="text-red-500 ml-2 mt-1">{errors.subject}</p>
               )}
             </div>
-            {/* Message */}
             <div className="w-full">
               <textarea
-                className="px-3 shadow-[0_0_16px_0px_rgba(0,0,0,0.1)] p-2 rounded-lg w-full"
+                className="shadow-[0_0_16px_0px_rgba(0,0,0,0.1)] p-2 rounded-lg w-full"
                 rows="3"
                 cols="50"
                 placeholder="Write your message"

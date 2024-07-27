@@ -6,27 +6,13 @@ import GoToTopButton from "./components/utils/GotoTop";
 import { Toaster } from "react-hot-toast";
 
 const App = () => {
+  // ** Var
+  const isLiveServer = import.meta.env.VITE_LIVE_SERVER;
+
+  // ** State
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Prevent context menu and keyboard shortcuts
-    const handleContextMenu = (event) => {
-      event.preventDefault();
-    };
-
-    const handleKeyDown = (event) => {
-      if (
-        (event.ctrlKey &&
-          (event.key === "c" || event.key === "u" || event.key === "s")) || // Ctrl+C, Ctrl+U, Ctrl+S
-        event.key === "F12" // F12
-      ) {
-        event.preventDefault();
-      }
-    };
-
-    document.addEventListener("contextmenu", handleContextMenu);
-    document.addEventListener("keydown", handleKeyDown);
-
     // Loading timeout
     const timer = setTimeout(() => {
       setLoading(false);
@@ -35,9 +21,35 @@ const App = () => {
     // Cleanup
     return () => {
       clearTimeout(timer);
-      document.removeEventListener("contextmenu", handleContextMenu);
-      document.removeEventListener("keydown", handleKeyDown);
     };
+  }, []);
+
+  useEffect(() => {
+    if (isLiveServer === "live_server") {
+      // Prevent context menu and keyboard shortcuts
+      const handleContextMenu = (event) => {
+        event.preventDefault();
+      };
+
+      const handleKeyDown = (event) => {
+        if (
+          (event.ctrlKey &&
+            (event.key === "c" || event.key === "u" || event.key === "s")) || // Ctrl+C, Ctrl+U, Ctrl+S
+          event.key === "F12" // F12
+        ) {
+          event.preventDefault();
+        }
+      };
+
+      document.addEventListener("contextmenu", handleContextMenu);
+      document.addEventListener("keydown", handleKeyDown);
+
+      // Cleanup
+      return () => {
+        document.removeEventListener("contextmenu", handleContextMenu);
+        document.removeEventListener("keydown", handleKeyDown);
+      };
+    }
   }, []);
 
   return (

@@ -29,7 +29,7 @@ const Footer = () => {
             data-aos="fade-up"
             data-aos-duration="1200"
             href={
-              "https://wa.me/+919106321043?text=Hello i want to connect with you."
+              "https://wa.me/+919725920461?text=Hello i want to connect with you."
             }
             target="_blank"
             className="box font-medium text-white  flex items-center justify-center flex-col"
