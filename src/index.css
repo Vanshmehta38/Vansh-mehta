@@ -83,6 +83,36 @@ html {
   /* Standard */
 }
 
+.back-to-top-button {
+  display: flex;
+  height: 36px;
+  width: 36px;
+  background-color: rgba(253, 215, 110, 0.671) !important;
+  border: 1px solid rgb(253, 215, 110) !important;
+  color: #161c2d;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  -webkit-box-shadow: 0 0 3px rgba(22, 28, 45, 0.15);
+  box-shadow: 0 0 3px rgba(22, 28, 45, 0.15);
+}
+
+.back-to-top-button:hover {
+  background-color: #fdd76e !important;
+  -webkit-transform: translateY(-2px);
+  transform: translateY(-2px);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  color: #ffffff;
+}
+
+.back-to-top-icons {
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  stroke-width: 2;
+  height: 12px;
+  width: 12px;
+}
+
 /*--------------------------------------------------------------
 # Sections General
 --------------------------------------------------------------*/

@@ -32,9 +32,9 @@ const GoToTopButton = () => {
       {visible && (
         <button
           onClick={scrollToTop}
-          className="bg-yellow-500 text-white p-3 rounded-full shadow-lg"
+          className="back-to-top-button bg-yellow-500 text-white p-3 rounded-[10px] shadow-lg"
         >
-          <FaArrowUp />
+          <FaArrowUp className="back-to-top-icons" />
         </button>
       )}
     </div>
