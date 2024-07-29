@@ -27,16 +27,24 @@ const navItems = [
 ];
 
 const NavBar = ({ toggleDarkMode, darkMode }) => {
+  // ** State
   const [isOpen, setIsOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(null);
+  const [scrollPosition, setScrollPosition] = useState(0);
 
   // Toggle the navbar
-  const toggleNav = (name) => {
-    setIsOpen(!isOpen);
+  const toggleNavOpen = () => {
+    setIsOpen(true);
+  };
+
+  const toggleNavClose = () => {
+    setIsOpen(false);
+  };
+
+  const handleActiveTab = (name) => {
     setActiveIndex(name === activeIndex ? null : name);
   };
 
-  const [scrollPosition, setScrollPosition] = useState(0);
   useEffect(() => {
     const handleScroll = () => {
       setScrollPosition(window.scrollY);
@@ -68,7 +76,7 @@ const NavBar = ({ toggleDarkMode, darkMode }) => {
         <div className="nav-items flex items-center">
           {/* hamburger */}
           <button
-            onClick={toggleNav}
+            onClick={toggleNavOpen}
             data-aos="fade-down"
             className="cursor-pointer text-2xl hidden md:block"
           >
@@ -77,12 +85,13 @@ const NavBar = ({ toggleDarkMode, darkMode }) => {
 
           <ul
             className={`flex items-center space-x-11 ${
-              !isOpen ? "md:flex" : "custom-background md:right-[0%] "
+              isOpen ? "custom-background md:right-[0%]" : "md:flex"
             } md:flex-col md:absolute m-auto md:top-0 md:right-[-100%] md:w-[78%] md:h-screen`}
+            style={{ backgroundColor: isOpen && "#bcf4d56e" }}
           >
             {/* Use a button tag for better accessibility */}
             <button
-              onClick={toggleNav}
+              onClick={toggleNavClose}
               className={`text-3xl hidden md:block relative right-0 top-4 container mx-auto`}
             >
               <RxCross2 size={25} />
@@ -94,7 +103,10 @@ const NavBar = ({ toggleDarkMode, darkMode }) => {
                 className="md:m-6 md:flex md:gap-6 md:items-center md:justify-center"
               >
                 <a
-                  onClick={() => toggleNav(item.name)}
+                  onClick={() => {
+                    handleActiveTab(item.name);
+                    toggleNavClose();
+                  }}
                   href={`#${item.name}`}
                   className={`uppercase cursor-pointer text-black hover:text-yellow-600 font-bold ${
                     item.name === activeIndex ? "text-yellow-600" : ""
@@ -107,7 +119,7 @@ const NavBar = ({ toggleDarkMode, darkMode }) => {
             <a
               href="#contact"
               data-aos="fade-down"
-              onClick={() => setIsOpen(!isOpen)}
+              onClick={() => toggleNavClose}
               className="bg-black text-[1rem] text-white px-8 py-2 rounded-lg font-bold hover:text-yellow-400 md:m-5 md:block md:mx-auto md:w-fit lg:px-3"
             >
               HIRE ME
