@@ -8,7 +8,7 @@ import { FaAward } from "react-icons/fa6";
 const Experience = () => {
   return (
     <>
-      <div className="section stats-container parallax-mf bg-image">
+      <div className="section stats-container parallax-mf bg-image mt-[5rem]">
         <div className="overlay-mf"></div>
         <div data-aos="fade-up" className="stat-item">
           <div className="counter-ico">

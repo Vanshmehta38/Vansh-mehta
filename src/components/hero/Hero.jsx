@@ -38,7 +38,7 @@ const Hero = () => {
               href="#contact"
               className=" bg-black text-[1rem] text-white px-10 py-2 sm:px-8 rounded-lg font-bold  hover:text-yellow-500"
             >
-              <span> Hire Me</span>
+              <span>Hire Me</span>
             </a>
             <a
               href={resumePDF}
@@ -47,7 +47,8 @@ const Hero = () => {
               download
             >
               <div className="flex items-center gap-1">
-                Resume <FiDownload />
+                Download CV
+                <FiDownload />
               </div>
             </a>
           </div>
