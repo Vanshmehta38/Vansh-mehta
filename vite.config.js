@@ -11,8 +11,8 @@ export default defineConfig({
       includeAssets: ["favicon.svg", "robots.txt", "apple-touch-icon.png"],
       manifest: {
         name: "Vansh Mehta",
-        short_name: "Resume",
-        description: "Vansh Resume",
+        short_name: "Vansh Mehta",
+        description: "My Resume",
         theme_color: "#ffffff",
         background_color: "#ffffff",
         display: "standalone",
