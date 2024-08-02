@@ -1,7 +1,7 @@
 {
   "name": "Vansh Mehta",
   "short_name": "Resume",
-  "description": "Vansh Mehta as a PWA",
+  "description": "Vansh Resume",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",

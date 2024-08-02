@@ -10,9 +10,9 @@ export default defineConfig({
       registerType: "autoUpdate",
       includeAssets: ["favicon.svg", "robots.txt", "apple-touch-icon.png"],
       manifest: {
-        name: "My Resume",
+        name: "Vansh Mehta",
         short_name: "Resume",
-        description: "My Resume as a PWA",
+        description: "Vansh Resume",
         theme_color: "#ffffff",
         background_color: "#ffffff",
         display: "standalone",
