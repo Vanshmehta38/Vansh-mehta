@@ -1,1 +1,29 @@
-{"name":"My Resume","short_name":"Resume","start_url":"/","display":"standalone","background_color":"#ffffff","lang":"en","scope":"/","description":"My Resume as a PWA","theme_color":"#ffffff","icons":[{"src":"/android-chrome-192x192.png","sizes":"192x192","type":"image/png"},{"src":"/icon/android-chrome-512x512.png","sizes":"512x512","type":"image/png"},{"src":"/public/icon/android-chrome-512x512.png","sizes":"512x512","type":"image/png","purpose":"maskable"}]}
+{
+  "name": "Vansh Mehta",
+  "short_name": "Resume",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "lang": "en",
+  "scope": "/",
+  "description": "My Resume",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/public/icon/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
